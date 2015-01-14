@@ -15,6 +15,13 @@
 // (if you're using LESS with the built-in default config, you'll want
 //  to change `assets/styles/importer.less` instead.)
 var cssFilesToInject = [
+
+  // Load normalize first
+  'styles/dependencies/normalize.css',
+
+  // Dependencies
+  'styles/dependencies/foundation.css',
+
   'styles/**/*.css'
 ];
 
@@ -22,16 +29,17 @@ var cssFilesToInject = [
 // Client-side javascript files to inject in order
 // (uses Grunt-style wildcard/glob/splat expressions)
 var jsFilesToInject = [
-  
+
   // Load sails.io before everything else
   'js/dependencies/sails.io.js',
 
   // Dependencies like jQuery, or Angular are brought in here
-  'js/dependencies/**/*.js',
+  'js/dependencies/jquery.min.js',
+  'js/dependencies/foundation.min.js',
 
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
-  'js/**/*.js'
+  'js/**/!(modernizr).js'
 ];
 
 
