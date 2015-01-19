@@ -1,18 +1,18 @@
-expect = require 'expect'
+expect = require 'expect.js'
 
 ErrorHandler = require '../../api/services/ErrorHandler'
 
 describe 'ErrorHandler.response', ->
   it 'should accept and echo a String error', ->
     resp = ErrorHandler.response 'an error'
-    expect(resp.status).toBe 'NOK'
-    expect(resp.message).toBe 'an error'
+    expect(resp.status).to.be 'NOK'
+    expect(resp.message).to.be 'an error'
 
   it 'should accept and print an Error object', ->
     err = new Error 'an error'
     resp = ErrorHandler.response err
-    expect(resp.status).toBe 'NOK'
-    expect(resp.message).toBe err.toString()
+    expect(resp.status).to.be 'NOK'
+    expect(resp.message).to.be err.toString()
 
   it 'should accept an Error object with validation errors and return detailed report', ->
     err = new Error
@@ -30,10 +30,10 @@ describe 'ErrorHandler.response', ->
       }]
 
     resp = ErrorHandler.response err
-    expect(resp.status).toBe 'NOK'
-    expect(resp.message).toBe 'Validation error'
-    expect(resp.errors.attr1).toBeA 'string'
-    expect(resp.errors.attr1).toBe 'a message'
-    expect(resp.errors.attr2).toBeA 'string'
-    expect(resp.errors.attr2).toBe 'a message 3'
-    expect(resp.errors.attr3).toBeA 'undefined'
+    expect(resp.status).to.be 'NOK'
+    expect(resp.message).to.be 'Validation error'
+    expect(resp.errors).to.have.property 'attr1'
+    expect(resp.errors.attr1).to.be 'a message'
+    expect(resp.errors).to.have.property 'attr2'
+    expect(resp.errors.attr2).to.be 'a message 3'
+    expect(resp.errors).to.not.have.property 'attr3'

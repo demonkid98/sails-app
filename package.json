@@ -38,7 +38,7 @@
   "author": "trungv",
   "license": "",
   "devDependencies": {
-    "expect": "^1.4.0",
+    "expect.js": "^0.3.1",
     "grunt-mocha-test": "^0.12.6",
     "mocha": "^2.1.0"
   }
