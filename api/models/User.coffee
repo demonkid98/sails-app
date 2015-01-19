@@ -25,6 +25,12 @@ module.exports =
     cb()
 
   beforeCreate: (attrs, cb) ->
+    this.hashPassword(attrs, cb)
+
+  beforeUpdate: (attrs, cb) ->
+    this.hashPassword(attrs, cb)
+
+  hashPassword: (attrs, cb) ->
     bcrypt = require 'bcrypt'
     bcrypt.hash attrs.password, 10, (err, hash) ->
       return cb(err) if err?

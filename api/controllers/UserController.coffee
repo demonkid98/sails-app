@@ -5,20 +5,28 @@ module.exports =
       res.json users
 
   create: (req, res) ->
-    options = req.param 'user', null
+    options = req.body.user
     return res.json(ErrorHandler.response('invalid param')) unless options?
+
+    console.log options
     User.create(options).exec (err, user) ->
-      console.log err.ValidationError
       return res.json(ErrorHandler.response(err)) if err?
       res.json
         status: 'OK',
         user: user
 
   update: (req, res) ->
-    res.json
-      todo: 'unimplemented'
+    options = req.body.user
+    return res.json(ErrorHandler.response('invalid param')) unless options?
+
+    User.update(req.params.id, options).exec (err, user) ->
+      return res.json(ErrorHandler.response(err)) if err?
+      return res.json(ErrorHandler.response('user not found')) unless user.length > 0
+
+      res.json
+        status: 'OK',
+        user: user
 
   destroy: (req, res) ->
     res.json
       todo: 'unimplemented'
-
