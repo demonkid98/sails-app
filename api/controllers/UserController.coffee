@@ -8,7 +8,6 @@ module.exports =
     options = req.body.user
     return res.json(ErrorHandler.response('invalid param')) unless options?
 
-    console.log options
     User.create(options).exec (err, user) ->
       return res.json(ErrorHandler.response(err)) if err?
       res.json

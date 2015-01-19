@@ -23,5 +23,10 @@ npm install -g nodemon
 ## Run
 To have server auto restart when backend scripts are changed
 ```
-nodemon --watch api --watch config --watch tasks --watch node_modules -e js,coffee app.js
+nodemon -w api -e js,coffee app.js
+```
+
+### Test
+```
+grunt test
 ```
