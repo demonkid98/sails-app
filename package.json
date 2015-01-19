@@ -36,5 +36,10 @@
     "url": "git://github.com/demonkid98/sails-app.git"
   },
   "author": "trungv",
-  "license": ""
+  "license": "",
+  "devDependencies": {
+    "expect": "^1.4.0",
+    "grunt-mocha-test": "^0.12.6",
+    "mocha": "^2.1.0"
+  }
 }
