@@ -22,8 +22,6 @@ module.exports =
     for attr, value of attrs
       continue if ['password', 'passwordConfirmation'].indexOf(attr) >= 0
       attrs[attr] = value.trim()
-    console.log attrs
-    console.log '***'
     cb()
 
   beforeCreate: (attrs, cb) ->
