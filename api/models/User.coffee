@@ -11,12 +11,20 @@ module.exports =
       maxLength: 20
       regex: /^[a-z0-9\.\-_]+$/i
       unique: true
+    email:
+      type: 'string'
+      required: true
+      email: true
+      unique: true
     password:
       type: 'string'
       protected: true
       required: true
       minLength: 3
       password: true
+    dob:
+      type: 'string'
+      date: true
 
   beforeValidation: (attrs, cb) ->
     for attr, value of attrs
