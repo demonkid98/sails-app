@@ -18,14 +18,17 @@ module.exports =
     options = req.body.user
     return res.json(ErrorHandler.response('invalid param')) unless options?
 
-    User.update(req.params.id, options).exec (err, user) ->
+    User.update(req.params.id, options).exec (err, users) ->
       return res.json(ErrorHandler.response(err)) if err?
-      return res.json(ErrorHandler.response('user not found')) unless user.length > 0
+      return res.json(ErrorHandler.response('user not found')) unless users.length > 0
 
       res.json
         status: 'OK',
-        user: user
+        users: users
 
   destroy: (req, res) ->
-    res.json
-      todo: 'unimplemented'
+    User.destroy(req.params.id).exec (err, users) ->
+      return res.json(ErrorHandler.response(err)) if err?
+      return res.json(ErrorHandler.response('user not found')) unless users.length > 0
+
+      res.json status: 'OK'

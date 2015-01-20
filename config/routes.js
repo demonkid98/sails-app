@@ -49,5 +49,5 @@ module.exports.routes = {
   'GET /user': 'UserController.index',
   'POST /user': 'UserController.create',
   'PUT /user/:id': 'UserController.update',
-  'DELETE /user:id': 'UserController.destroy'
+  'DELETE /user/:id': 'UserController.destroy'
 };
