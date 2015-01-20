@@ -35,8 +35,10 @@ var jsFilesToInject = [
 
   // Dependencies like jQuery, or Angular are brought in here
   'js/dependencies/modernizr.js',
-  'js/dependencies/jquery.min.js',
-  'js/dependencies/foundation.min.js',
+  'js/dependencies/jquery.js',
+  'js/dependencies/underscore.js',
+  'js/dependencies/backbone.js',
+  'js/dependencies/foundation.js',
 
   // All of the rest of your client-side js files
   // will be injected here in no particular order.

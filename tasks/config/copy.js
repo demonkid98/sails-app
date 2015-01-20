@@ -26,7 +26,13 @@ module.exports = function(grunt) {
         expand: true,
         flatten: true,
         cwd: './bower_components',
-        src: ['jquery/dist/jquery.min.{map,js}', 'foundation/js/foundation.min.js', 'modernizr/modernizr.js'],
+        src: [
+          'jquery/dist/jquery.js',
+          'foundation/js/foundation.js',
+          'modernizr/modernizr.js',
+          'underscore/underscore.js',
+          'backbone/backbone.js'
+        ],
         dest: '.tmp/public/js/dependencies'
       }, { // vendor css
         expand: true,
