@@ -42,6 +42,10 @@ var jsFilesToInject = [
 
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
+  'js/backbone/app.js',
+  'js/backbone/models/**/*.js',
+  'js/backbone/collections/**/*.js',
+  'js/backbone/views/**/*.js',
   'js/**/*.js'
 ];
 
