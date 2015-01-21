@@ -23,7 +23,7 @@ module.exports =
       minLength: 3
       password: true
     dob:
-      type: 'string'
+      type: 'date'
       date: true
 
   beforeValidation: (attrs, cb) ->
