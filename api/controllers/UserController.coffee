@@ -5,7 +5,7 @@ module.exports =
       res.json users
 
   create: (req, res) ->
-    options = req.body.user
+    options = req.body
     return res.json(ErrorHandler.response('invalid param')) unless options?
 
     User.create(options).exec (err, user) ->
@@ -15,7 +15,7 @@ module.exports =
         user: user
 
   update: (req, res) ->
-    options = req.body.user
+    options = req.body
     return res.json(ErrorHandler.response('invalid param')) unless options?
 
     User.update(req.params.id, options).exec (err, users) ->
