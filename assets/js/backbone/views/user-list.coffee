@@ -3,22 +3,7 @@ window.Views.UserList = Backbone.View.extend
   className: 'item-list'
 
   initialize: ->
-    $(@el).html _.template(
-      """
-        <table class="full-width user-list">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Username</th>
-              <th>Email</th>
-
-              <th>Created</th>
-              <th>Updated</th>
-            </tr>
-          </thead>
-        </table>
-      """
-    )()
+    $(@el).html _.template($('#user-list-tmpl').html())()
 
     _.bindAll this, 'addOne', 'addAll'
 
@@ -28,18 +13,7 @@ window.Views.UserList = Backbone.View.extend
     @userList.fetch()
 
   addOne: (user) ->
-    @$('table').append _.template(
-      """
-        <tr>
-          <td> - </td>
-          <td>{{ username }}</td>
-          <td>{{ email }}</td>
-
-          <td>{{ createdAt }}</td>
-          <td>{{ updatedAt }}</td>
-        </tr>
-      """
-    )(user.toJSON())
+    @$('table').append _.template($('#user-row-tmpl').html())(user.toJSON())
 
   addAll: ->
     console.log 'addAll'
