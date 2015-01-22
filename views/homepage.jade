@@ -1,17 +1,5 @@
 extends ./layout
 
-
-block body
-  header.header
-    h3#main-title.container
-      | A brand new app.
-    h4.container
-      = 'You\'re looking at: '
-      code
-        = view.pathFromApp + '.' + view.ext
-
-  section#main.container.clearfix
-
 block templates
   script#user-list-tmpl(type='text/html')
     table.full-width.user-list
