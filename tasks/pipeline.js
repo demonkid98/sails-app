@@ -43,6 +43,7 @@ var jsFilesToInject = [
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
   'js/backbone/app.js',
+  'js/backbone/router.js',
   'js/backbone/models/**/*.js',
   'js/backbone/collections/**/*.js',
   'js/backbone/views/**/*.js',
@@ -64,7 +65,6 @@ var templateFilesToInject = [
 ];
 
 
-
 // Prefix relative paths to source files so they point to the proper locations
 // (i.e. where the other Grunt tasks spit them out, or in some cases, where
 // they reside in the first place)
@@ -75,5 +75,5 @@ module.exports.jsFilesToInject = jsFilesToInject.map(function(path) {
   return '.tmp/public/' + path;
 });
 module.exports.templateFilesToInject = templateFilesToInject.map(function(path) {
-  return 'assets/' + path;
+  return '.tmp/public/' + path;
 });

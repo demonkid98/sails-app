@@ -1,2 +1,4 @@
-view = new Views.UserList()
-$('#main').append view.el
+new Router()
+Backbone.history.start()
+
+$(document).foundation()
