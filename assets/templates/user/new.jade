@@ -1,0 +1,33 @@
+h4 New User
+form#user-form(action='/user', method='POST')
+  .row
+    .medium-8.large-6.medium-centered.column
+      .row
+        .medium-3.column
+          label.inline(for='user-username') Username
+        .medium-9.column
+          input#user-username(name='user[username]', type='text')
+      .row
+        .medium-3.column
+          label.inline(for='user-email') Email
+        .medium-9.column
+          input#user-email(name='user[email]', type='email')
+      .row
+        .medium-3.column
+          label.inline(for='user-password') Password
+        .medium-9.column
+          input#user-password(name='user[password]', type='password')
+      .row
+        .medium-3.column
+          label.inline(for='user-password-confirmation') Re-password
+        .medium-9.column
+          input#user-password-confirmation(name='user[passwordConfirmation]', type='password')
+      .row
+        .medium-3.column
+          label.inline(for='user-dob') Date of Birth
+        .medium-9.column
+          input#user-dob(name='user[dob]', type='text')
+      .row
+        .medium-offset-3.medium-9.column
+          button.button.small(type='submit') Create
+          button.button.small.secondary(type='button') Cancel
