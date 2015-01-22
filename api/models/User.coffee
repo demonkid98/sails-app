@@ -28,7 +28,7 @@ module.exports =
 
   beforeValidation: (attrs, cb) ->
     for attr, value of attrs
-      continue if ['password', 'passwordConfirmation'].indexOf(attr) >= 0
+      continue if ['password', 'passwordConfirmation'].indexOf(attr) >= 0 || typeof value != 'string'
       attrs[attr] = value.trim()
     cb()
 
