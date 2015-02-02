@@ -47,7 +47,10 @@ var jsFilesToInject = [
   'js/backbone/models/**/*.js',
   'js/backbone/collections/**/*.js',
   'js/backbone/views/**/*.js',
-  'js/**/*.js'
+
+  'js/!spec/**/*.js',
+
+  'js/*.js'
 ];
 
 
