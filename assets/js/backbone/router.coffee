@@ -2,13 +2,13 @@ Router = Backbone.Router.extend
   routes:
     '': 'index'
     'user': 'user'
-    'user/new': 'newUser'
+    'user/new': 'userNew'
   index: ->
     console.log 'index'
     $('#main').html ''
   user: ->
     view = new Views.UserList()
     $('#main').html view.el
-  newUser: ->
-    view = new Views.UserForm()
+  userNew: ->
+    view = new Views.UserNew()
     $('#main').html view.el

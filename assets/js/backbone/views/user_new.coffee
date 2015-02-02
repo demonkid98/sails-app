@@ -1,8 +1,8 @@
-window.Views.UserForm = Backbone.View.extend
+window.Views.UserNew = Backbone.View.extend
   tagName: 'section'
   className: 'user-form'
   events:
-    'submit #user-form': 'createUser'
+    'submit #user-new': 'createUser'
 
   initialize: ->
     @render()
@@ -15,12 +15,17 @@ window.Views.UserForm = Backbone.View.extend
     user = @model ||= new Models.User()
 
     attrs = ['username', 'email', 'password', 'passwordConfirmation', 'dob']
-    for attr in attrs
-      user.set attr, @$el.find("[name=\"user[#{attr}]\"]").val()
+    user.set attr, @$el.find("[name=\"user[#{attr}]\"]").val() for attr in attrs
 
+    self = @
     user.save {},
-      success: ->
-        console.log arguments
+      success: (collection, resp, options) ->
+        if resp.status == 'NOK'
+          console.log resp
+          return
+        self.trigger 'user:created', user
+        router.navigate '/user', {trigger: true}
+
       error: ->
         console.error '----'
         console.log arguments

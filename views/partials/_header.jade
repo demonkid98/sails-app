@@ -1,7 +1,13 @@
 nav.top-bar(data-topbar, role='navigation')
-  section.top-bar-section
+  section.top-bar-section.sails-app-top-bar-section
     ul.left
       li
         a(href='#') Home
-      li
-        a(href='#user') User
+      li.divider
+      li.has-dropdown
+        a User
+        ul.dropdown
+          li
+            a(href='#user') List
+          li
+            a(href='#user/new') New
