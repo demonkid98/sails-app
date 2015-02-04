@@ -1,0 +1,17 @@
+tr.user&attributes({'data-user-id': '<%= id %>'})
+  td <%= id %>
+  td <%= username %>
+  td <%= email %>
+  td <%= dob %>
+  td <%= createdAt %>
+  td <%= updatedAt %>
+  td
+    ul.button-group
+      li
+        a.button.user-edit&attributes({'data-user-id': '<%= id %>'})
+          i.fi-pencil
+          = " Edit"
+      li
+        a.button.alert.user-delete&attributes({'data-user-id': '<%= id %>'})
+          i.fi-trash
+          = " Delete"

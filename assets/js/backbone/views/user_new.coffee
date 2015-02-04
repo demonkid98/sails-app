@@ -19,18 +19,16 @@ window.Views.UserNew = Backbone.View.extend
     attrs = ['username', 'email', 'password', 'passwordConfirmation', 'dob']
     data[attr] = @$el.find("""[name="#{attr}"]""").val() for attr in attrs
 
-    self = @
     @model.save data,
-      beforeSend: ->
-        self.clearFlash()
-      success: (model, resp, options) ->
-        self.trigger 'user:created', model
+      beforeSend: =>
+        @clearFlash()
+      success: (model, resp) =>
+        @trigger 'user:created', model
         router.navigate '/user', {trigger: true}
-      error: (model, resp, options) ->
-        self.showFlash resp.responseText, 'error'
+      error: (model, resp) =>
+        @showFlash resp.responseText, 'alert'
 
   clearFlash: ->
-    console.log 'aaa'
-    @$('.flash').remove()
+    @$('.alert-box').remove()
   showFlash: (msg, klass) ->
-    @$el.prepend """<div class="#{klass} flash">#{msg}</div>"""
+    @$el.prepend """<div class="#{klass} alert-box">#{msg}</div>"""
