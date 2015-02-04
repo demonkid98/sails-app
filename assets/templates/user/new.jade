@@ -1,33 +1,24 @@
-h4 New User
-form#user-new(action='/user', method='POST')
-  .row
-    .medium-8.large-6.medium-centered.column
-      .row
-        .medium-3.column
-          label.inline(for='username') Username
-        .medium-9.column
-          input#username(name='username', type='text')
-      .row
-        .medium-3.column
-          label.inline(for='email') Email
-        .medium-9.column
-          input#email(name='email', type='email')
-      .row
-        .medium-3.column
-          label.inline(for='password') Password
-        .medium-9.column
-          input#password(name='password', type='password')
-      .row
-        .medium-3.column
-          label.inline(for='password-confirmation') Re-password
-        .medium-9.column
-          input#password-confirmation(name='passwordConfirmation', type='password')
-      .row
-        .medium-3.column
-          label.inline(for='dob') Date of Birth
-        .medium-9.column
-          input#dob(name='dob', type='text')
-      .row
-        .medium-offset-3.medium-9.column
-          button.button.small(type='submit') Create
-          button.button.small.secondary(type='button') Cancel
+- large = 3
+- medium = 4
+
+form#user-new.bounded-box(action='/user', method='POST')
+  h4 New User
+  .row.no-edge-gutter
+    .column(class="medium-#{medium} large-#{large}")
+      input#username(name='username', type='text', placeholder='Username')
+    .column(class="medium-#{medium} large-#{large}")
+      input#email(name='email', type='email', placeholder='Email')
+    .column(class="medium-#{medium} large-#{large}")
+      input#dob(name='dob', type='text', placeholder='DOB')
+    .clearfix
+    .column(class="medium-#{medium} large-#{large}")
+      input#password(name='password', type='password', placeholder='Password')
+    .column(class="medium-#{medium} large-#{large}")
+      input#password-confirmation(name='passwordConfirmation', type='password', placeholder='Re-password')
+    .column.end(class="medium-#{medium} large-#{large}")
+      button.button(type='submit')
+        i.fi-page-add
+        = ' Create'
+      a.button.alert(href="/#user")
+        i.fi-x
+        = ' Cancel'
