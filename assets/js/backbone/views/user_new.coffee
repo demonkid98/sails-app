@@ -5,27 +5,32 @@ window.Views.UserNew = Backbone.View.extend
     'submit #user-new': 'createUser'
 
   initialize: ->
+    @model ||= new Models.User()
     @render()
+
   render: ->
-    $(@el).html _.template(JST['user/new']())()
+    @$el.html _.template(JST['user/new']())(errors: {})
     @
+
   createUser: (e) ->
     e.preventDefault()
 
-    user = @model ||= new Models.User()
-
+    data = {}
     attrs = ['username', 'email', 'password', 'passwordConfirmation', 'dob']
-    user.set attr, @$el.find("[name=\"user[#{attr}]\"]").val() for attr in attrs
+    data[attr] = @$el.find("""[name="#{attr}"]""").val() for attr in attrs
 
     self = @
-    user.save {},
-      success: (collection, resp, options) ->
-        if resp.status == 'NOK'
-          console.log resp
-          return
-        self.trigger 'user:created', user
+    @model.save data,
+      beforeSend: ->
+        self.clearFlash()
+      success: (model, resp, options) ->
+        self.trigger 'user:created', model
         router.navigate '/user', {trigger: true}
+      error: (model, resp, options) ->
+        self.showFlash resp.responseText, 'error'
 
-      error: ->
-        console.error '----'
-        console.log arguments
+  clearFlash: ->
+    console.log 'aaa'
+    @$('.flash').remove()
+  showFlash: (msg, klass) ->
+    @$el.prepend """<div class="#{klass} flash">#{msg}</div>"""

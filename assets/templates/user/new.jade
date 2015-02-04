@@ -4,29 +4,29 @@ form#user-new(action='/user', method='POST')
     .medium-8.large-6.medium-centered.column
       .row
         .medium-3.column
-          label.inline(for='user-username') Username
+          label.inline(for='username') Username
         .medium-9.column
-          input#user-username(name='user[username]', type='text')
+          input#username(name='username', type='text')
       .row
         .medium-3.column
-          label.inline(for='user-email') Email
+          label.inline(for='email') Email
         .medium-9.column
-          input#user-email(name='user[email]', type='email')
+          input#email(name='email', type='email')
       .row
         .medium-3.column
-          label.inline(for='user-password') Password
+          label.inline(for='password') Password
         .medium-9.column
-          input#user-password(name='user[password]', type='password')
+          input#password(name='password', type='password')
       .row
         .medium-3.column
-          label.inline(for='user-password-confirmation') Re-password
+          label.inline(for='password-confirmation') Re-password
         .medium-9.column
-          input#user-password-confirmation(name='user[passwordConfirmation]', type='password')
+          input#password-confirmation(name='passwordConfirmation', type='password')
       .row
         .medium-3.column
-          label.inline(for='user-dob') Date of Birth
+          label.inline(for='dob') Date of Birth
         .medium-9.column
-          input#user-dob(name='user[dob]', type='text')
+          input#dob(name='dob', type='text')
       .row
         .medium-offset-3.medium-9.column
           button.button.small(type='submit') Create
