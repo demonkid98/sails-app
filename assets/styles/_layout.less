@@ -10,9 +10,21 @@
 }
 .row {
   max-width: none;
+  &.no-edge-gutter {
+    width: auto;
+    margin-left: -@gutter;
+    margin-right: -@gutter;
+  }
 }
 #main {
-  margin-top: 30px;
+  margin-top: 2 * @box-spacing;
+}
+#quick-form:not(:empty) {
+  margin-bottom: @box-spacing;
+}
+.bounded-box {
+  border: 1px solid @border-color;
+  padding: @gutter;
 }
 
 @media screen and (max-width: 1279px) {
