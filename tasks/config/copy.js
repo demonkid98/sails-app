@@ -38,8 +38,17 @@ module.exports = function(grunt) {
         expand: true,
         flatten: true,
         cwd: './bower_components',
-        src: ['foundation/css/{normalize,foundation}.css?(.map)'],
+        src: [
+          'foundation/css/{normalize,foundation}.css?(.map)',
+          'foundation-icon-fonts/foundation-icons.css'
+        ],
         dest: '.tmp/public/styles/dependencies'
+      }, { // vendor fonts
+        expand: true,
+        flatten: true,
+        cwd: './bower_components',
+        src: ['foundation-icon-fonts/foundation-icons.{eot,svg,ttf,woff}'],
+        dest: '.tmp/public/fonts'
       }]
     },
     build: {
