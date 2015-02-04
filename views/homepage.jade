@@ -1,22 +1,5 @@
 extends ./layout
 
-block templates
-  script#user-list-tmpl(type='text/html')
-    table.full-width.user-list
-      thead
-        tr
-          th #
-          th Username
-          th Email
-          th DOB
-          th Created
-          th Updated
-
-  script#user-row-tmpl(type='text/html')
-    tr
-      td <%= id %>
-      td <%= username %>
-      td <%= email %>
-      td <%= dob %>
-      td <%= createdAt %>
-      td <%= updatedAt %>
+block body
+  #quick-form
+  #content

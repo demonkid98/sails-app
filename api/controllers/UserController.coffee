@@ -27,4 +27,4 @@ module.exports =
       return res.send 400, ErrorHandler.response(err) if err?
       return res.send 400, ErrorHandler.response('user not found') unless users.length > 0
 
-      res.json status: 'OK'
+      res.json users
